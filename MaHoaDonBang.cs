@@ -11,8 +11,8 @@ namespace MaHoaCoDien
     {
         char[] alphabelUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         char[] alphabelLower = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-        bool inputSelect = false;
-        char[] keyInput;
+        bool inputSelect = false;//kiểm tra xem lựa chọn là nhập hay tạo khóa ngẫu nhiên
+        char[] keyInput;//khóa
 
         Random rand = new Random();
 
@@ -21,7 +21,7 @@ namespace MaHoaCoDien
             InitializeComponent();
         }
 
-
+        //kiểm tra đầu vào trong th người dùng chọn nhập khóa 
         bool checkKey(String khoa)
         {
 
@@ -44,7 +44,7 @@ namespace MaHoaCoDien
             }
         }
 
-
+        //mã hóa
         String encrypt(String chuoi, string khoa)
         {
             char[] result = new char[chuoi.Length];
@@ -56,25 +56,32 @@ namespace MaHoaCoDien
                 char x = chuoi[i];
                 if (char.IsUpper(x))
                 {
+                    //tìm vị trí của kí tự hiện tại trong alphabet
                     int vt = Array.IndexOf(alphabelUpper, x);
                     if (vt >= 0)
+                    {
+                        //ánh xạ vị trí của nó lên khóa để có thể lấy được kí tự đã được mã hóa
                         result[i] = khoaHoa[vt];
+                    }
                 }
                 else if (char.IsLower(x))
                 {
                     int vt = Array.IndexOf(alphabelLower, x);
                     if (vt >= 0)
+                    {
                         result[i] = khoaThuong[vt];
+                    }
                 }
                 else
                 {
+                    //các trường hợp còn lại thì vẫn thêm kí tự đó vào và không thay đổi
                     result[i] = x;
                 }
             }
             return new string(result);
         }
 
-
+        //giải mã
         String decrypt(String chuoi, string khoa)
         {
             char[] result = new char[chuoi.Length];
@@ -84,6 +91,9 @@ namespace MaHoaCoDien
             for (int i = 0; i < chuoi.Length; i++)
             {
                 char x = chuoi[i];
+                //tương tự như mã hóa nhưng đổi ngược lại vị trí
+                //thay vì tìm vị trí trong bảng chữ cái thì tìm vị trí trong khóa
+                //ánh xạ vị trí đó lên bảng alphabet để giải mã
                 if (char.IsUpper(x))
                 {
                     int vt = Array.IndexOf(khoaHoa, x);
