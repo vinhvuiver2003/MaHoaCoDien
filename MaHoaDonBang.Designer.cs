@@ -41,6 +41,7 @@
             label4 = new Label();
             label5 = new Label();
             textBox1 = new TextBox();
+            btn_exit = new Button();
             SuspendLayout();
             // 
             // label1
@@ -69,7 +70,7 @@
             btn_nhap.Font = new Font("Segoe UI", 12F);
             btn_nhap.Location = new Point(271, 395);
             btn_nhap.Name = "btn_nhap";
-            btn_nhap.Size = new Size(140, 43);
+            btn_nhap.Size = new Size(120, 43);
             btn_nhap.TabIndex = 2;
             btn_nhap.Text = "Nhập khóa";
             btn_nhap.UseVisualStyleBackColor = true;
@@ -174,11 +175,23 @@
             textBox1.Size = new Size(477, 38);
             textBox1.TabIndex = 12;
             // 
+            // btn_exit
+            // 
+            btn_exit.Font = new Font("Segoe UI", 12F);
+            btn_exit.Location = new Point(777, 394);
+            btn_exit.Name = "btn_exit";
+            btn_exit.Size = new Size(129, 43);
+            btn_exit.TabIndex = 13;
+            btn_exit.Text = "Thoát";
+            btn_exit.UseVisualStyleBackColor = true;
+            btn_exit.Click += btn_exit_Click;
+            // 
             // MaHoaDonBang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(910, 490);
+            ClientSize = new Size(950, 491);
+            Controls.Add(btn_exit);
             Controls.Add(textBox1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -214,5 +227,6 @@
         private Label label4;
         private Label label5;
         private TextBox textBox1;
+        private Button btn_exit;
     }
 }

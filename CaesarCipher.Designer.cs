@@ -37,6 +37,7 @@
             txtK = new TextBox();
             descryptBtn = new Button();
             label4 = new Label();
+            btn_exit = new Button();
             SuspendLayout();
             // 
             // btnEnscrypt
@@ -125,11 +126,23 @@
             label4.TabIndex = 8;
             label4.Text = "CAESAR CIPHER";
             // 
+            // btn_exit
+            // 
+            btn_exit.Font = new Font("Segoe UI", 12F);
+            btn_exit.Location = new Point(681, 319);
+            btn_exit.Name = "btn_exit";
+            btn_exit.Size = new Size(103, 58);
+            btn_exit.TabIndex = 9;
+            btn_exit.Text = "Thoát";
+            btn_exit.UseVisualStyleBackColor = true;
+            btn_exit.Click += btn_exit_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(862, 493);
+            Controls.Add(btn_exit);
             Controls.Add(label4);
             Controls.Add(descryptBtn);
             Controls.Add(txtK);
@@ -156,5 +169,6 @@
         private TextBox txtK;
         private Button descryptBtn;
         private Label label4;
+        private Button btn_exit;
     }
 }

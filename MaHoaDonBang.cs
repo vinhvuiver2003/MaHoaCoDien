@@ -21,6 +21,18 @@ namespace MaHoaCoDien
             InitializeComponent();
         }
 
+
+        bool checkKey(String khoa)
+        {
+
+            if (khoa.Length == 26 && khoa.All(char.IsLetter) && khoa.Distinct().Count() == 26)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         void Shuffle_Key(char[] array)
         {
             for (int i = array.Length - 1; i > 0; i--)
@@ -31,6 +43,7 @@ namespace MaHoaCoDien
                 array[j] = temp;
             }
         }
+
 
         String encrypt(String chuoi, string khoa)
         {
@@ -61,6 +74,7 @@ namespace MaHoaCoDien
             return new string(result);
         }
 
+
         String decrypt(String chuoi, string khoa)
         {
             char[] result = new char[chuoi.Length];
@@ -90,6 +104,7 @@ namespace MaHoaCoDien
             return new string(result);
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             txtKhoa.ReadOnly = true;
@@ -100,6 +115,7 @@ namespace MaHoaCoDien
             alphabelLower.CopyTo(keyInput, 0);
             Shuffle_Key(keyInput);
             txtKhoa.Text = new string(keyInput);
+            inputSelect = false;
         }
 
         private void MaHoaDonBang_Load(object sender, EventArgs e)
@@ -110,35 +126,62 @@ namespace MaHoaCoDien
             textBox1.Text = "abcdefghijklmnopqrstuvwxyz";
         }
 
+
         private void btn_encrypt_Click(object sender, EventArgs e)
         {
             string banghi = txt_BanGhi.Text.ToString();
-            txt_Ma.Text = encrypt(banghi, new string(keyInput));
+            string khoa = txtKhoa.Text;
+
+            if (inputSelect)
+            {
+                if (!checkKey(khoa))
+                {
+                    MessageBox.Show("Khóa không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            txt_Ma.Text = encrypt(banghi, khoa);
         }
+
 
         private void btn_decrypt_Click(object sender, EventArgs e)
         {
             string ma = txt_Ma.Text.ToString();
-            txt_BanGhi.Text = decrypt(ma, new string(keyInput));
+            string khoa = txtKhoa.Text;
+
+            if (inputSelect)
+            {
+                if (!checkKey(khoa))
+                {
+                    MessageBox.Show("Khóa không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            txt_BanGhi.Text = decrypt(ma, khoa);
         }
+
 
         private void btn_nhap_Click(object sender, EventArgs e)
         {
             txtKhoa.ReadOnly = false;
+            inputSelect = true;
         }
 
         private void txt_Ma_TextChanged(object sender, EventArgs e)
         {
-            btn_decrypt.Enabled = false;
-            btn_decrypt.Enabled = true;
-            txt_Ma.Clear();
+            btn_decrypt.Enabled = !string.IsNullOrWhiteSpace(txt_Ma.Text);
         }
 
         private void txt_BanGhi_TextChanged(object sender, EventArgs e)
         {
-            btn_encrypt.Enabled = true;
-            btn_decrypt.Enabled = false;
-            txt_BanGhi.Clear();
+            btn_encrypt.Enabled = !string.IsNullOrWhiteSpace(txt_BanGhi.Text);
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

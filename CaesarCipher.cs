@@ -11,8 +11,8 @@ namespace CaesarCipher
 
         public String encrypt(String text, int k)
         {
-           
-            
+
+
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < text.Length; i++)
             {
@@ -31,10 +31,10 @@ namespace CaesarCipher
                 {
                     result.Append(c);
                 }
-               
-                }
+
+            }
             return result.ToString();
-               
+
         }
         public Boolean isNumber(String text)
         {
@@ -51,7 +51,7 @@ namespace CaesarCipher
         private void btnEnscrypt_Click(object sender, EventArgs e)
         {
 
-            if (textScypt.Text.Equals("")||txtK.Text.Equals("") || !isNumber(txtK.Text.ToString()))
+            if (textScypt.Text.Equals("") || txtK.Text.Equals("") || !isNumber(txtK.Text.ToString()))
             {
                 MessageBox.Show("Chưa nhập số K hoặc nhập số không hợp lệ");
                 return;
@@ -60,12 +60,12 @@ namespace CaesarCipher
             String x = textScypt.Text;
             string y = encrypt(x, int.Parse(txtK.Text));
             string result = "Mã ban đầu: " + x + "\n";
-            
+
             result += " mã hóa khóa k: " + int.Parse(txtK.Text) + "\n";
-            result += string.Format("{0,10} {1,15} -> {2,25}","lần lặp", "Mã ban đầu", "mã sau biên dịch") + "\n";
+            result += string.Format("{0,10} {1,15} -> {2,25}", "lần lặp", "Mã ban đầu", "mã sau biên dịch") + "\n";
             for (int i = 0; i < x.Length; i++)
             {
-                result += string.Format("{0,10} {1,15} ->{2,25}", i, x[i], y[i])+"\n";
+                result += string.Format("{0,10} {1,15} ->{2,25}", i, x[i], y[i]) + "\n";
 
             }
             result += "Mã sau mã hóa: " + y;
@@ -74,7 +74,7 @@ namespace CaesarCipher
         }
         public String descypt(String text, int k)
         {
-           string y = encrypt(text, 26-k%26);
+            string y = encrypt(text, 26 - k % 26);
             return y;
         }
 
@@ -91,11 +91,11 @@ namespace CaesarCipher
                 return;
 
             }
-            
-            
+
+
             String x = enscriptTxt.Text;
-            string y = descypt(x,int.Parse(txtK.Text));
-            string result = "Mã đã mã hóa: "+x+"\n";
+            string y = descypt(x, int.Parse(txtK.Text));
+            string result = "Mã đã mã hóa: " + x + "\n";
             result += "Biên dịch lại với mã khóa K " + txtK.Text.ToString() + "\n";
             result += string.Format("{0,10} {1,15} -> {2,25}", "lần lặp", "Mã sau dịch", "mã ban đầu") + "\n";
             for (int i = 0; i < x.Length; i++)
@@ -103,9 +103,14 @@ namespace CaesarCipher
                 result += string.Format("{0,10} {1,15} -> {2,25}", i, x[i], y[i]) + "\n";
 
             }
-            result += "Mã ban đầu: "+y;
+            result += "Mã ban đầu: " + y;
             MessageBox.Show(result);
             textScypt.Text = y;
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
