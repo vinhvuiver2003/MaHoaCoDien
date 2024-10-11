@@ -32,6 +32,7 @@
             btn_caesar = new Button();
             btn_donbang = new Button();
             btn_exit = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -69,7 +70,7 @@
             // btn_exit
             // 
             btn_exit.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            btn_exit.Location = new Point(302, 264);
+            btn_exit.Location = new Point(302, 324);
             btn_exit.Name = "btn_exit";
             btn_exit.Size = new Size(251, 53);
             btn_exit.TabIndex = 3;
@@ -77,11 +78,23 @@
             btn_exit.UseVisualStyleBackColor = true;
             btn_exit.Click += btn_exit_Click;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            button1.Location = new Point(302, 265);
+            button1.Name = "button1";
+            button1.Size = new Size(251, 53);
+            button1.TabIndex = 4;
+            button1.Text = "Mã hóa Playfair";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // homepage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(btn_exit);
             Controls.Add(btn_donbang);
             Controls.Add(btn_caesar);
@@ -98,5 +111,6 @@
         private Button btn_caesar;
         private Button btn_donbang;
         private Button btn_exit;
+        private Button button1;
     }
 }

@@ -34,5 +34,11 @@ namespace MaHoaCoDien
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Playfair playfair = new Playfair();
+            playfair.ShowDialog();
+        }
     }
 }
