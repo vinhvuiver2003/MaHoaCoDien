@@ -40,5 +40,11 @@ namespace MaHoaCoDien
             Playfair playfair = new Playfair();
             playfair.ShowDialog();
         }
+
+        private void btn_mahoavie_Click(object sender, EventArgs e)
+        {
+           VigenereCipher vigenereCipher = new VigenereCipher();
+            vigenereCipher.ShowDialog();
+        }
     }
 }
