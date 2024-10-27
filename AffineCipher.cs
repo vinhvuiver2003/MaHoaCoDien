@@ -105,7 +105,7 @@ namespace MaHoaCoDien
             int a, b;
             if (checkInput(txtPlaintext.Text) || !int.TryParse(textBox1.Text, out a) || !int.TryParse(textBox2.Text, out b))
             {
-                MessageBox.Show("Nhập sai dữ liệu hoặc 'a' không phải là số nguyên tố với 26.");
+                MessageBox.Show("Nhập sai dữ liệu ");
                 return;
             }
             if (nghichDao(a,26)==-1)
@@ -122,7 +122,7 @@ namespace MaHoaCoDien
             int a, b;
             if (checkInput(txtPlaintext.Text) || !int.TryParse(textBox1.Text, out a) || !int.TryParse(textBox2.Text, out b) || (nghichDao(a, 26) == -1))
             {
-                MessageBox.Show("Nhập sai dữ liệu hoặc 'a' không phải là số nguyên tố với 26.");
+                MessageBox.Show("Nhập sai dữ liệu hoặc 'a' không có ucln với 26 là 1.");
                 return;
             }
             textBox4.Text = txtPlaintext.Text;

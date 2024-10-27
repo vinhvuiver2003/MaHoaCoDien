@@ -43,8 +43,26 @@ namespace MaHoaCoDien
 
         private void btn_mahoavie_Click(object sender, EventArgs e)
         {
-           VigenereCipher vigenereCipher = new VigenereCipher();
+            VigenereCipher vigenereCipher = new VigenereCipher();
             vigenereCipher.ShowDialog();
+        }
+
+        private void btn_hill_Click(object sender, EventArgs e)
+        {
+            HillCipher hillCipher = new HillCipher();
+            hillCipher.ShowDialog();
+        }
+
+        private void btn_affine_Click(object sender, EventArgs e)
+        {
+            AffineCipher affineCipher = new AffineCipher();
+            affineCipher.ShowDialog();
+        }
+
+        private void btn_mahoahang_Click(object sender, EventArgs e)
+        {
+            MahoaHang affineAlgo = new MahoaHang();
+            affineAlgo.ShowDialog();
         }
     }
 }

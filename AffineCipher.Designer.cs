@@ -42,13 +42,15 @@
             textBox4 = new TextBox();
             label7 = new Label();
             richTextBox1 = new RichTextBox();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label1.Location = new Point(609, 69);
+            label1.Location = new Point(602, 37);
             label1.Name = "label1";
             label1.Size = new Size(96, 31);
             label1.TabIndex = 0;
@@ -58,7 +60,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label2.Location = new Point(609, 144);
+            label2.Location = new Point(602, 112);
             label2.Name = "label2";
             label2.Size = new Size(104, 31);
             label2.TabIndex = 1;
@@ -67,7 +69,7 @@
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            textBox1.Location = new Point(711, 66);
+            textBox1.Location = new Point(704, 34);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(48, 38);
             textBox1.TabIndex = 2;
@@ -75,7 +77,7 @@
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            textBox2.Location = new Point(711, 141);
+            textBox2.Location = new Point(704, 109);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(48, 38);
             textBox2.TabIndex = 3;
@@ -84,7 +86,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label3.Location = new Point(615, 201);
+            label3.Location = new Point(608, 169);
             label3.Name = "label3";
             label3.Size = new Size(90, 31);
             label3.TabIndex = 4;
@@ -94,7 +96,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label4.Location = new Point(31, 69);
+            label4.Location = new Point(24, 37);
             label4.Name = "label4";
             label4.Size = new Size(72, 31);
             label4.TabIndex = 5;
@@ -103,7 +105,7 @@
             // txtPlaintext
             // 
             txtPlaintext.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            txtPlaintext.Location = new Point(156, 69);
+            txtPlaintext.Location = new Point(149, 37);
             txtPlaintext.Name = "txtPlaintext";
             txtPlaintext.Size = new Size(199, 38);
             txtPlaintext.TabIndex = 6;
@@ -112,7 +114,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            button1.Location = new Point(156, 448);
+            button1.Location = new Point(149, 416);
             button1.Name = "button1";
             button1.Size = new Size(167, 70);
             button1.TabIndex = 9;
@@ -123,7 +125,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            button2.Location = new Point(459, 448);
+            button2.Location = new Point(452, 416);
             button2.Name = "button2";
             button2.Size = new Size(140, 70);
             button2.TabIndex = 10;
@@ -134,7 +136,7 @@
             // textBox3
             // 
             textBox3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            textBox3.Location = new Point(156, 141);
+            textBox3.Location = new Point(149, 109);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
@@ -145,7 +147,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label6.Location = new Point(31, 174);
+            label6.Location = new Point(24, 142);
             label6.Name = "label6";
             label6.Size = new Size(119, 31);
             label6.TabIndex = 12;
@@ -154,7 +156,7 @@
             // textBox4
             // 
             textBox4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            textBox4.Location = new Point(156, 247);
+            textBox4.Location = new Point(149, 215);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
@@ -165,7 +167,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label7.Location = new Point(31, 278);
+            label7.Location = new Point(24, 246);
             label7.Name = "label7";
             label7.Size = new Size(129, 31);
             label7.TabIndex = 14;
@@ -174,35 +176,45 @@
             // richTextBox1
             // 
             richTextBox1.Dock = DockStyle.Right;
-            richTextBox1.Location = new Point(793, 0);
+            richTextBox1.Location = new Point(780, 0);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(408, 591);
+            richTextBox1.Size = new Size(421, 591);
             richTextBox1.TabIndex = 15;
             richTextBox1.Text = "";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(txtPlaintext);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(780, 591);
+            panel1.TabIndex = 16;
             // 
             // AffineCipher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1201, 591);
+            Controls.Add(panel1);
             Controls.Add(richTextBox1);
-            Controls.Add(label7);
-            Controls.Add(textBox4);
-            Controls.Add(label6);
-            Controls.Add(textBox3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(txtPlaintext);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Name = "AffineCipher";
             Text = "AffineCipher";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -221,5 +233,6 @@
         private TextBox textBox4;
         private Label label7;
         private RichTextBox richTextBox1;
+        private Panel panel1;
     }
 }
