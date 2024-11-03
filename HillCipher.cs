@@ -189,7 +189,7 @@ namespace MaHoaCoDien
                         sum += arr[x] * matrix[j, x];
                     }
 
-                    cipherText.Append((char)((sum % 26) + 'A'));
+                    cipherText.Append((char)(modunIn_26(sum) + 'A'));
                 }
             }
 
@@ -226,8 +226,8 @@ namespace MaHoaCoDien
                         int q = arr[x] * matrix[j, x];
                         sum += q;
                     }
-
-                    plainText.Append((char)((sum % 26) + 65));
+                    
+                    plainText.Append((char)(modunIn_26(sum) + 65));
                 }
             }
             return plainText.ToString();
@@ -251,29 +251,14 @@ namespace MaHoaCoDien
 
         int nghichDao(int a, int m)
         {
-            int m0 = m, t, q;
-            int x0 = 0, x1 = 1;
-
-
-            while (a > 1)
+            for (int i = 1; i < m; i++)
             {
-
-                q = a / m;
-                t = m;
-
-                m = a % m;
-                a = t;
-                t = x0;
-
-                x0 = x1 - q * x0;
-                x1 = t;
+                if ((a * i) % m == 1)
+                {
+                    return i;
+                }
             }
-
-
-            if (x1 < 0)
-                x1 += m0;
-
-            return x1;
+            return -1;
         }
 
 
@@ -391,7 +376,7 @@ namespace MaHoaCoDien
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void txtInput_TextChanged(object sender, EventArgs e)
